@@ -58,7 +58,7 @@ function game() {
         }
         if (checkScore(scoreComputer, scorePlayer)) {
             console.log("You lose!")
-            return
+            returnp
         }
     }
 }
