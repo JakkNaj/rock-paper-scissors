@@ -1,22 +1,23 @@
+console.log = function(message) {
+    document.getElementById('logArea').innerHTML = message;
+};
+
 function getComputerChoice() {
-    choices = ["rock", "paper", "scissors"]
-    return choices[Math.floor(Math.random() * 3)]
+    const choices = ["rock", "paper", "scissors"];
+    return choices[Math.floor(Math.random() * 3)];
 }
 
-function getPlayerChoice() {
-    let playerChoice = prompt("Please enter your move: (rock | paper | scissors)")
-    return playerChoice
-}
+function playRound(playerChoice) {
+    let computer = getComputerChoice();
+    let player = playerChoice;
+    console.log("player choice: " + player);
+    return
 
-function playRound() {
-    let computer = getComputerChoice()
-    let player = getPlayerChoice()
     if ( computer === player ) {
-        console.log("this is round is tied")
-        playRound()
-        return
+        console.log("TIE, play again");
+        playRound();
     } else {
-        if (computer == "rock") {
+        if (computer === "rock") {
             switch(player) {
                 case "paper": console.log("You win this round!, paper beats rock");
                             return "player";
@@ -24,7 +25,7 @@ function playRound() {
                             return "computer";
             }
         }
-        if (computer == "paper") {
+        if (computer === "paper") {
             switch(player) {
                 case "scissors": console.log("You win this round!, scissors beats paper");
                             return "player";
@@ -32,7 +33,7 @@ function playRound() {
                             return "computer";
             }
         }
-        if (computer == "scissors") {
+        if (computer === "scissors") {
             switch(player) {
                 case "rock": console.log("You win this round!, rock beats scissors");
                             return "player";
@@ -42,30 +43,22 @@ function playRound() {
         }
     }
 }
-
-function game() {
-    scoreComputer = 0
-    scorePlayer = 0
-    for(let i = 0; i < 5; i++) {
-        if (playRound() == "player"){
-            scorePlayer++;
-        } else {
-            scoreComputer++;
-        }
-        if (checkScore(scorePlayer, scoreComputer)) {
-            console.log("You win!")
-            return
-        }
-        if (checkScore(scoreComputer, scorePlayer)) {
-            console.log("You lose!")
-            returnp
-        }
-    }
+function checkScore(a, b) {
+    return a - b >= 2;
 }
 
-function checkScore(A, B) {
-    if (A - B >= 2) {
-        return true
-    }
-    return false
+function showGame(){
+    //hide play button
+    let playButt = document.getElementById("play");
+    playButt.classList.add("hidden");
+
+    //display main section
+    document.getElementById("mainSection").style.display = "flex";
 }
+
+//hide main section - when page is loaded
+document.getElementById("mainSection").style.display = "none";
+
+document.querySelector('button[id="play"]').addEventListener("click", showGame);
+
+document.getElementById("paper").addEventListener("click", playRound("paper"));

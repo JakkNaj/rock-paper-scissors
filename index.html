@@ -5,9 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-Paper-Scissors</title>
-    <script src="./script.js"></script>
+    <link href="styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
 </head>
 <body>
-    <button onclick="game()">Play!</button>
-</body>
+    <h1>ROCK PAPER SCISSORS</h1>
+    <button id="play">Play!</button>
+    <div id="mainSection" class="hidden">
+        <h2>First to score 5 points win!</h2>
+        <h3>Choose your weapon!</h3>
+        <div id="gameSection" class="hidden">
+            <div class="card">
+                <img id="paper" class="cardImg" src="images/note.png">
+            </div>
+            <div class="card">
+                <img id="scissors" class="cardImg" src="images/scissors.png">
+            </div>
+            <div class="card">
+                <img id="rock" class="cardImg" src="images/stone.png">
+            </div>
+        </div>
+        <h3>log:</h3>
+        <div id="logArea">
+
+        </div>
+    </div>
+    </body>
+    <script src="./script.js"></script>
 </html>

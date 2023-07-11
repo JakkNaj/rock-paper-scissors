@@ -1,0 +1,31 @@
+* {
+    background-color: black;
+    color: white;
+    font-family: 'Silkscreen', cursive;
+}
+
+body, #mainSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.cardImg{
+    width: 64px;
+    height: 64px;
+    border: 1px solid white;
+}
+
+.cardImg:hover, #play:hover{
+    transition: transform .3s;
+    transform: scale(1.2);
+}
+
+#gameSection {
+    display: flex;
+    gap: 80px;
+}
