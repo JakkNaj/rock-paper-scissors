@@ -6,6 +6,14 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random() * 3)];
 }
 
+function logMessage( message ){
+    let logArea = document.getElementById("mylog");
+
+    let logMessage = document.createElement('div');
+    logMessage.textContent = message;
+    logArea.appendChild(logMessage);
+}
+
 function playRound(playerChoice) {
     let computer = getComputerChoice();
     let player = playerChoice;
@@ -16,43 +24,50 @@ function playRound(playerChoice) {
     } else {
         if (computer === "rock") {
             switch(player) {
-                case "paper": console.log("You win this round!, paper beats rock");
+                case "paper": logMessage("You win this round!, paper beats rock");
                             return playerScore++;
-                case "scissors": console.log("You lose this round!, rock beats scissors");
+                case "scissors": logMessage("You lose this round!, rock beats scissors");
                             return computerScore++;
             }
         }
         if (computer === "paper") {
             switch(player) {
-                case "scissors": console.log("You win this round!, scissors beats paper");
+                case "scissors": logMessage("You win this round!, scissors beats paper");
                     return playerScore++;
-                case "rock": console.log("You lose this round!, paper beats rock");
+                case "rock": logMessage("You lose this round!, paper beats rock");
                     return computerScore++;
             }
         }
         if (computer === "scissors") {
             switch(player) {
-                case "rock": console.log("You win this round!, rock beats scissors");
+                case "rock": logMessage("You win this round!, rock beats scissors");
                     return playerScore++;
-                case "paper": console.log("You lose this round!, scissors beats paper");
+                case "paper": logMessage("You lose this round!, scissors beats paper");
                     return computerScore++;
             }
         }
     }
 }
 
+function displayScore(){
+    document.getElementById("playerScore").textContent = playerScore;
+    document.getElementById("computerScore").textContent = computerScore;
+
+}
+
 function checkCount(){
-    if (playerScore >= 5) {
-        console.log("Player win!");
+    if (playerScore >= 3) {
+        logMessage("Player win!");
         playerScore = 0;
         computerScore = 0;
-    } else if (computerScore >= 5) {
-        console.log("Computer win!");
+    } else if (computerScore >= 3) {
+        logMessage("Computer win!");
         playerScore = 0;
         computerScore = 0;
     }
-    console.log("P: " + playerScore + "   C: " + computerScore);
+    displayScore();
 }
+
 
 function showGame(){
     //hide play button

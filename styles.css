@@ -29,3 +29,8 @@ body, #mainSection {
     display: flex;
     gap: 80px;
 }
+
+#scoreBoard {
+    display: flex;
+    gap: 50px;
+}

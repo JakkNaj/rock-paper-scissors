@@ -14,7 +14,7 @@
     <h1>ROCK PAPER SCISSORS</h1>
     <button id="play">Play!</button>
     <div id="mainSection" class="hidden">
-        <h2>First to score 5 points win!</h2>
+        <h2>First to score 3 points win!</h2>
         <h3>Choose your weapon!</h3>
         <div id="gameSection" class="hidden">
             <div class="card">
@@ -27,10 +27,14 @@
                 <img id="rock" class="cardImg" src="images/stone.png">
             </div>
         </div>
-        <h3>log:</h3>
-        <div id="logArea">
-
+        <div id="scoreBoard">
+            <h4>Player: </h4>
+            <h4 id="playerScore"></h4>
+            <h4>Computer: </h4>
+            <h4 id="computerScore"></h4>
         </div>
+        <h3>log:</h3>
+        <div id="mylog"></div>
     </div>
     </body>
     <script src="./script.js"></script>
